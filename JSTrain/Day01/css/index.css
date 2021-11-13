@@ -1,0 +1,112 @@
+.clearfix::after,.clearfix::before{
+    content: '';
+    display: table;
+    clear: both;
+}
+.big{
+    width: 100%;
+    background-color: #333;
+    min-width: 1226px;
+}
+.top-waper{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #333;
+    margin: 0 auto;
+    
+}
+.line{
+    color:rgba(170, 162, 162,0.1);
+    margin: 0 8px;
+}
+.top-waper a{
+    color: #b0b0b0;
+    font-size: 12px;
+    text-decoration: none;
+    /* margin: 0 10px; */
+    display: block;
+    /* height: 40px; */
+}
+
+.good li{
+
+    float: left;
+}
+
+.log li{
+
+    float: right;
+    margin-right: 10px;
+}
+.good a:hover,.log a:hover{
+    color: rgb(245, 243, 243);
+}
+.buy li{
+    color: rgb(245, 243, 243);
+    background-color: rgba(172, 162, 162,0.5);
+    float: right;
+}
+.buy{
+    margin-right: 10px;
+}
+.buy a:hover{
+    background-color:rgb(245, 243, 243);
+    color: #FF6700;
+    
+}
+
+.app{
+    width: 124px;
+    display: none;
+    height: 148px;
+    background-color: rgb(245, 243, 243);
+    text-align: center;
+    line-height: 1;
+    box-shadow: 0 0 10px;
+    position:absolute;
+    left: -37px;
+    transition: height 3s;
+}
+
+/* .app1:hover{
+    display: block;
+} */
+.app span{
+    color: black;
+}
+#download{
+    width: 90px;
+    /* margin-left: 17px; */
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+.app1{
+    position: relative;
+}
+.app1:hover::after{
+    display: block;
+}
+.app1::after{
+    position: absolute;
+    content: '';
+    display: none;
+    width: 0;
+    height: 0;
+    border: 10px  solid transparent;
+    /* display: block; */
+    border-top: none;
+    border-bottom-color: white;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+}
+.app1:hover > .app{
+    display: block;
+}
+
+/* .app1::after{
+    display: block;
+} */

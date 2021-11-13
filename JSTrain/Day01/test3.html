@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        ul{
+            width: 590px;
+            height: 470px;
+            background-color: lightcoral;
+            margin: 100px auto;
+            position: relative;
+        }
+        ul li{
+            position: absolute;
+
+        }
+        /* ul li:nth-child(1){
+            z-index: 1;
+        } */
+        .div1{
+            z-index: 1000;
+            position:absolute;
+            bottom: 20px;
+        }
+        .div1 a{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-left: 8px;
+            background-color: rgb(161, 215, 219);
+            /* display: block; */
+            float: left;
+        }
+        .div1 a:hover{
+            background-color: seashell;
+        }
+        .pre{
+            position: absolute;
+            z-index: 1000;
+            top: 200px;
+        }
+        .pre a{
+            /* width: 10px;
+            height: 10px; */
+            background-color: sienna;
+            float: left;
+            /* bottom: ; */
+        }
+        .next{
+            position: absolute;
+            z-index: 1000;
+            top: auto;
+            bottom: auto;
+            right: 0px;
+            top: 200px;
+        }
+        .next a{
+            /* width: 10px;
+            height: 10px; */
+            background-color: sienna;
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var div1 = document.getElementsByClassName("div1")[0];
+            var a_list = div1.getElementsByTagName("a");
+            var li_list = document.getElementsByTagName("li");
+            var max = 1;
+            var index = 0;
+            for(var i=0;i<a_list.length;i++){
+                a_list[i].num = i;
+                a_list[i].onclick = function(){
+                    li_list[this.num].style.zIndex = max++;
+                    index = this.num;
+                }
+            }
+            var pre = document.getElementsByClassName("pre")[0];
+            var next = document.getElementsByClassName("next")[0];
+            pre.onclick = function(){
+                // alert((index-1+li_list.length)%li_list.length);
+                li_list[(index-1+li_list.length)%li_list.length].style.zIndex = max++;
+                index = (index-1+li_list.length)%li_list.length;
+            }
+            next.onclick = function(){
+                // alert((index+1)%li_list.length);
+                li_list[(index+1)%li_list.length].style.zIndex = max++;
+                index = (index+1)%li_list.length;
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <div class="pre">
+            <a href="javascript:;">pre</a>
+        </div>
+        <div class="next">
+            <a href="javascript:;">next</a>
+        </div>
+        <li>
+            <a href="">
+                <img src="img/1.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/2.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/3.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/4.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/5.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="img/6.jpg" alt="">
+            </a>
+        </li>
+        <div class="div1">
+           <a href="javascript:;"></a>
+           <a href="javascript:;"></a>
+           <a href="javascript:;"></a>
+           <a href="javascript:;"></a>
+           <a href="javascript:;"></a>
+           <a href="javascript:;"></a>
+        </div>
+        
+    </ul>
+
+</body>
+</html>
