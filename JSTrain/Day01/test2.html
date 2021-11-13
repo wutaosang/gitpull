@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <style>
+		.div1{
+			width: 400px;
+			height: 400px;
+			background-color: silver;
+			overflow: hidden;
+		}
+		.div2{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			margin-bottom: 100px;
+			transition: all 3s;
+			animation-name: test;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+			/* animation: test 2s; */
+			animation-direction: alternate;
+		}
+		.div1:hover .div2{
+			width: 200px;
+			height: 200px;
+		}
+		@keyframes test{
+			from{
+				margin-left: 0;
+			}
+			to{
+				margin-left: 300px;
+			}
+		}
+    </style>
+</head>
+<body>
+	<div class="div1">
+		<div class="div2">
+			
+		</div>
+	</div>
+
+</body>
+</html>

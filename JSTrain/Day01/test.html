@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+				overflow: auto;
+				position: absolute;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background-color: salmon;
+				overflow: auto;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+			}
+			
+		</style>
+		<script>
+			window.onload  = function(){
+				var div1 = document.getElementById("div1");
+				var dir;
+				document.onkeydown = function(event){
+					dir = event.keyCode;
+				}
+				document.onkeyup = function(){
+					dir = 0;
+				}
+				setInterval(function(){
+					switch(dir){
+						case 37:
+							div1.style.left = div1.offsetLeft - 10 + "px";
+							break;
+						case 40:
+							div1.style.top = div1.offsetTop + 10 + "px";
+							break;
+						case 38:
+							div1.style.top = div1.offsetTop - 10 + "px";
+							break;
+						case 39:
+							div1.style.left = div1.offsetLeft + 10 + "px";
+							break;
+					}
+				},30
+				)
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+</html>

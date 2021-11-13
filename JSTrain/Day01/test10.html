@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.img-list{
+				width: 220px;
+				height: 200px;
+				background-color: #00FFFF;
+				margin: 100px auto;
+				padding: 10px 0;
+				/* display: flex; */
+				/* overflow: hidden; */
+				position: relative;
+				overflow: hidden;
+			}
+			.img-wapper{
+				/* width: 3000px; */
+				/* display: flex; */
+				position: absolute;
+				/* left: -220px; */
+				transition: 1s;
+				
+			}
+			.img-wapper li{
+				/* position: absolute; */
+				/* left: 0; */
+				/* top: 0; */
+				/* margin-left: 200px; */
+				float: left;
+				margin: 0 10px;
+			}
+			.link-list{
+				position: absolute;
+				/* width: 100%; */
+				bottom: 10px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.link-list li{
+				width: 10px;
+				height: 10px;
+				background-color: red;
+				opacity: .3;
+				float: left;
+				margin: 0 4px;
+			}
+			.link-list li:first-child{
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		window.onload  =function(){
+			var img_wapper = document.getElementsByClassName('img-wapper')[0];
+			var img_list = img_wapper.getElementsByTagName('li')
+			var img_length = img_list.length;
+			img_wapper.style.width = 220*img_length+'px';
+			var index=0;
+			var index1=0;
+			var link = document.getElementsByClassName('link-list')[0];
+			var link_list = link.getElementsByTagName('li');
+			var timer = setInterval(function(){
+				(link_list[index]).style.opacity = 1;
+				(link_list[(index-1+link_list.length)%link_list.length]).style.opacity = .3;
+				index++;
+				img_wapper.style.left = -220*index1++ +'px';
+				if(index>=link_list.length){
+					index=0;
+					//img_wapper.style.transitionDuration = "0s";
+				}
+				else{
+					//img_wapper.style.transitionDuration = "1s";
+				}
+				if(index1==img_length-1){
+					index1=0;
+					img_wapper.style.transitionDuration = "0s";
+					img_wapper.style.left = 0;
+					
+				}
+				else{
+					img_wapper.style.transitionDuration = "1s";
+				}
+				// console.log((link_list[index]));
+			},1000);
+			
+			for(var i=0;i<link_list.length;i++){
+				link_list[i].num = i;
+				link_list[i].onclick = function(){
+					var num = this.num;
+					(link_list[num]).style.opacity = 1;
+					(link_list[(index-1+img_length)%img_length]).style.opacity = .3;
+					index = num;
+					clearInterval(timer);
+					timer = setInterval(function(){
+						(link_list[index]).style.opacity = 1;
+						(link_list[(index-1+img_length)%img_length]).style.opacity = .3;
+						img_wapper.style.left = -220*index++ +'px';
+						if(index>=img_length){
+							index=0
+						}
+						// console.log((link_list[index]));
+					},1000);
+				}
+			}
+		}
+	</script>
+	<body>
+		<div class="img-list">
+			<ul class="img-wapper">
+				<li><img src="img1/2.jpeg" ></li>
+				<li><img src="img1/1.jpeg" ></li>
+				<li><img src="img1/3.jpeg" ></li>
+				<li><img src="img1/4.jpeg" ></li>
+				<li><img src="img1/5.jpg" ></li>
+				<li><img src="img1/6.jpg" ></li>
+				<li><img src="img1/2.jpeg" ></li>
+			</ul>
+			<ul class="link-list">
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+				<li><a href="javascript:;"></a></li>
+			</ul>
+		</div>
+	</body>
+</html>

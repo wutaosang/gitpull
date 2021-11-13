@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+				overflow: auto;
+				position: absolute;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+				overflow: auto;
+				position: absolute;
+				top: 200px;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				var btn = document.getElementById("btn");
+				var btn1 = document.getElementById("btn1");
+				var btn2 = document.getElementById("btn2");
+				var div1 = document.getElementById("div1");
+				var div2 = document.getElementById("div2");
+				var timer;
+				var timer1;
+				var timer2;
+				btn.onclick = function(){
+					clearInterval(timer);
+					clearInterval(timer1);
+					timer = setInterval(function(){
+						div1.style.left = div1.offsetLeft + 10+"px";
+						if(div1.offsetLeft>=800 ){
+							div1.style.left = "800px";
+							clearInterval(timer);
+						}
+					},30);
+				}
+				
+				
+				btn1.onclick = function(){
+					clearInterval(timer1);
+					clearInterval(timer);
+					timer1 = setInterval(function(){
+						div1.style.left = div1.offsetLeft - 10+"px";
+						if(div1.offsetLeft<=0 ){
+							div1.style.left = "0px";
+							clearInterval(timer1);
+						}
+					},30);
+				}
+				
+				btn2.onclick = function(){
+					//alert("box1");
+					clearInterval(timer2);
+					timer2 = setInterval(function(){
+						div2.style.left = div2.offsetLeft + 10+"px";
+						if(div2.offsetLeft>=800 ){
+							div2.style.left = "800px";
+							clearInterval(timer2);
+						}
+					},15);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">right</button>
+		<button id="btn1">left</button>
+		<button id="btn2">box11</button>
+		<div id="div1">
+			
+		</div>
+		<div id="div2"></div>
+		<div style="width: 0; height: 800px; left: 800px; border-left: 1px black solid;position: absolute; "></div>
+	</body>
+</html>
